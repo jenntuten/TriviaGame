@@ -715,7 +715,7 @@ $(document).ready(function () {
             document.getElementById('timer').innerHTML = "Time's up! Click the logo below to play again";
             clearInterval(interval);
             $(".question-wrapper").empty();
-            $(".play-again").append("<img src =nbalogo.jpg><br>Click the image to play again.");
+            $(".play-again").append("<img src =assets/images/nbalogo.jpg><br>Click the image to play again.");
         }
     }, 1000);
 
@@ -816,7 +816,7 @@ $(document).ready(function () {
             $(".done").append("You got " + correct + " answers correct and " + incorrect + " answers incorrect.");
             done = true;
             console.log('done', done);
-            $(".play-again").append("<img src =nbalogo.jpg><br>Click the image to play again.");
+            $(".play-again").append("<img src =assets/images/nbalogo.jpg><br>Click the image to play again.");
         }
     }
     $(".choice1").on('click', function () {
