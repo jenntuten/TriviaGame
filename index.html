@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/app.js"></script>
+</head>
+<body>
+    <style>
+    body {
+        background: black;
+        color: white;
+        text-align: center;
+        align-content: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .question {
+        font-weight: bold;
+    }
+    .question-wrapper {
+        height: 180px;
+    }
+    .choice1, .choice2, .choice3, .choice4 {
+        width: 240px;
+        height: 30px;
+        background: orange;
+        margin-bottom: 10px;
+        border-radius: 4px;
+    }
+    .choices {
+        height: 300px;
+        text-align: center;
+        margin: 0 auto;
+        
+        /*border: 10px red;
+        width: 180px;
+        height: 30px;
+        /*background: blue;
+        margin-bottom: 10px;
+        border-radius: 4px; */
+    }
+    </style>
+    <img src ="assets/images/nba-logo.png" height = 150px width = 80px>
+    <div class="correct-div">Correct: <div class = "correct">0</div></div>
+    <div class="incorrect-div">Incorrect: <div class="incorrect">0</div></div>
+    <div class="timeDiv">Time: <div id="timer">90</div></div>
+    <!--<button class="start">Start</button><br>-->
+    <div class="answer-image"></div>
+    <div class="question-wrapper"><br>
+    <!--<div class="pic-holder"><img src="nbalogo.jpg"></div>-->
+    <div class="question"></div><br>
+ <!--  <div class="choices"></div>-->
+ <div class="choices">
+    <button class="choice1" id="choice1"></button><br>
+    <button class="choice2" id="choice2"></button><br>
+    <button class="choice3" id="choice3"></button><br>
+    <button class="choice4"id="choice4"></button><br>
+</div>
+
+</div>
+<div class="timeout"></div>
+<div id="test"></div>
+<h2 class = "done"></h2>
+    <br>
+    <br>
+    <div class="play-again"><img src="assets/images/nbalogo.jpg"height = 100 px width = 100 px><br>Click the Image to Play Again</div>
+    <!--<button class="next-question">Next</button>-->
+    <h3 class="result"></h3>
+</body>
+</html>
