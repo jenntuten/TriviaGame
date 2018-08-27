@@ -630,7 +630,37 @@ $(document).ready(function () {
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is New Orleans."
     },
-   /* {
+    {
+        question: "Although basketball was invented in the 1800s, the NBA wasn't established until what year?",
+        choice1: "1920",
+        choice2: "1946",
+        choice3: "1957",
+        choice4: "1962",
+        answer: "1946",
+        ifRight: "Correct!",
+        ifWrong: "Wrong! The correct answer is 1946."
+    },
+    {
+        question: "Which NBA superstar was drafted out of high school?",
+        choice1: "Michael Jordan",
+        choice2: "Shaquille O'Neal",
+        choice3: "LeBron James",
+        choice4: "Kevin Durant",
+        answer: "LeBron James",
+        ifRight: "Correct!",
+        ifWrong: "Wrong! The correct answer is LeBron James."
+    },
+    /*{
+        question: "",
+        choice1: "",
+        choice2: "",
+        choice3: "",
+        choice4: "",
+        answer: "",
+        ifRight: "Correct!",
+        ifWrong: "Wrong! The correct answer is ."
+    },
+    {
         question: "",
         choice1: "",
         choice2: "",
@@ -659,11 +689,16 @@ $(document).ready(function () {
     //first question
     randQuestion = questionsAndChoices[Math.floor(Math.random() * questionsAndChoices.length)];
     console.log(questionsAndChoices.length);
+    //console.log("Current Array: ", currentArray.question);
     $(".question").append(randQuestion.question);
     $(".choice1").append(randQuestion.choice1);
+    $(".choice1").css('background', 'orange');
     $(".choice2").append(randQuestion.choice2);
+    $(".choice2").css('background', 'orange');
     $(".choice3").append(randQuestion.choice3);
+    $(".choice3").css('background', 'orange');
     $(".choice4").append(randQuestion.choice4);
+    $(".choice4").css('background', 'orange');
     $(".play-again").empty();
     used.push(randQuestion);
     console.log(used);
@@ -680,7 +715,7 @@ $(document).ready(function () {
             document.getElementById('timer').innerHTML = "Time's up! Click the logo below to play again";
             clearInterval(interval);
             $(".question-wrapper").empty();
-            $(".play-again").append("<img src =assets/images/nbalogo.jpg><br>Click the image to play again.");
+            $(".play-again").append("<img src =nbalogo.jpg><br>Click the image to play again.");
         }
     }, 1000);
 
@@ -688,11 +723,16 @@ $(document).ready(function () {
         correct = 0;
         incorrect = 0;
         randQuestion = questionsAndChoices[Math.floor(Math.random() * questionsAndChoices.length)];
+        
         $(".question").append(randQuestion.question);
         $(".choice1").append(randQuestion.choice1);
+        $(".choice1").css('background', 'orange');
         $(".choice2").append(randQuestion.choice2);
+        $(".choice2").css('background', 'orange');
         $(".choice3").append(randQuestion.choice3);
+        $(".choice3").css('background', 'orange');
         $(".choice4").append(randQuestion.choice4);
+        $(".choice4").css('background', 'orange');
         used.push(randQuestion);
     }
 
@@ -702,6 +742,9 @@ $(document).ready(function () {
         for( let i = questionsAndChoices.length-1; i--;){
             if (used.includes(questionsAndChoices[i]) === true) questionsAndChoices.splice(i, 1);
             }
+            console.log("Questions and choices after splice: ", questionsAndChoices.length);
+            console.log("New Q&Choice Array: ", questionsAndChoices);
+           // console.log("Current Array after 1st loop: ", currentArray.question);
         //let i = randQuestion;
         
         //set timer here to have question/choices appear in 1 sec...
@@ -743,7 +786,7 @@ $(document).ready(function () {
 
     used.push(randQuestion);
         //set timeout for result to disappear in 1 sec
-        let clearResult = 1;
+        let clearResult = 4;
         let interval2= setInterval(function () {
              //$("#test").append(--clearResult);
              --clearResult
@@ -751,36 +794,29 @@ $(document).ready(function () {
              if (clearResult <= 0) {
                  clearInterval(interval2);
                  $(".result").empty();
+                 $(".question").append(randQuestion.question);
+        $(".choice1").append(randQuestion.choice1);
+        $(".choice1").css('background', 'orange');
+        $(".choice2").append(randQuestion.choice2);
+        $(".choice2").css('background', 'orange');
+        $(".choice3").append(randQuestion.choice3);
+        $(".choice3").css('background', 'orange');
+        $(".choice4").append(randQuestion.choice4);
+        $(".choice4").css('background', 'orange');
+        
              }
          }, 1000);
-        $(".question").append(randQuestion.question);
-        $(".choice1").append(randQuestion.choice1);
-        $(".choice2").append(randQuestion.choice2);
-        $(".choice3").append(randQuestion.choice3);
-        $(".choice4").append(randQuestion.choice4);
+        
+        
         console.log('used array:', used);
-        /*console.log('random question i');
-        used.push(randQuestion[i]);
-        console.log("used array", used);
-        console.log("q and c", questionsAndChoices);
-        if (used.includes(randQuestion[i]) === true) {
-            for(let j = 0; j < questionsAndChoices.length; j++) {
-                used.push(questionsAndChoices[j]);
-                questionsAndChoices.splice(j, 1);
-                j--; //decrement j IF we remove an item
-              }
-            //questionsAndChoices.splice(randQuestion);
-            //i--;
-            console.log(questionsAndChoices.length);
-        }*/
-        //$(".result").empty();
+        
         if (parseInt(correct) + parseInt(incorrect) >= 10) {
             console.log('all done!');
             $(".question-wrapper").empty();//populate new message
             $(".done").append("You got " + correct + " answers correct and " + incorrect + " answers incorrect.");
             done = true;
             console.log('done', done);
-            $(".play-again").append("<img src =assets/images/nbalogo.jpg><br>Click the image to play again.");
+            $(".play-again").append("<img src =nbalogo.jpg><br>Click the image to play again.");
         }
     }
     $(".choice1").on('click', function () {
@@ -795,9 +831,14 @@ $(document).ready(function () {
             //$(".choices").empty();
             $(".question").empty();
             $(".choice1").empty();
+            $(".choice1").css('background', 'black');
             $(".choice2").empty();
+            $(".choice2").css('background', 'black');
             $(".choice3").empty();
+            $(".choice3").css('background', 'black');
             $(".choice4").empty();
+            $(".choice4").css('background', 'black');
+            //$(".choice1").append('<img src=assets/images/nbalogo.jpg>');
             loadNextQuestion();
         }
         else {
@@ -808,9 +849,13 @@ $(document).ready(function () {
             document.querySelector(".result").innerHTML = randQuestion.ifWrong;
             $(".question").empty();
             $(".choice1").empty();
+            $(".choice1").css('background', 'black');
             $(".choice2").empty();
+            $(".choice2").css('background', 'black');
             $(".choice3").empty();
+            $(".choice3").css('background', 'black');
             $(".choice4").empty();
+            $(".choice4").css('background', 'black');
             loadNextQuestion();
         }
     })
@@ -825,9 +870,13 @@ $(document).ready(function () {
             document.querySelector(".result").innerHTML = randQuestion.ifRight;
             $(".question").empty();
             $(".choice1").empty();
+            $(".choice1").css('background', 'black');
             $(".choice2").empty();
+            $(".choice2").css('background', 'black');
             $(".choice3").empty();
+            $(".choice3").css('background', 'black');
             $(".choice4").empty();
+            $(".choice4").css('background', 'black');
             loadNextQuestion();
         }
         else {
@@ -837,9 +886,13 @@ $(document).ready(function () {
             document.querySelector(".result").innerHTML = randQuestion.ifWrong;
             $(".question").empty();
             $(".choice1").empty();
+            $(".choice1").css('background', 'black');
             $(".choice2").empty();
+            $(".choice2").css('background', 'black');
             $(".choice3").empty();
+            $(".choice3").css('background', 'black');
             $(".choice4").empty();
+            $(".choice4").css('background', 'black');
             loadNextQuestion();
         }
     })
@@ -854,9 +907,13 @@ $(document).ready(function () {
             document.querySelector(".result").innerHTML = randQuestion.ifRight;
             $(".question").empty();
             $(".choice1").empty();
+            $(".choice1").css('background', 'black');
             $(".choice2").empty();
+            $(".choice2").css('background', 'black');
             $(".choice3").empty();
+            $(".choice3").css('background', 'black');
             $(".choice4").empty();
+            $(".choice4").css('background', 'black');
             loadNextQuestion();
         }
         else {
@@ -866,9 +923,13 @@ $(document).ready(function () {
             document.querySelector(".result").innerHTML = randQuestion.ifWrong;
             $(".question").empty();
             $(".choice1").empty();
+            $(".choice1").css('background', 'black');
             $(".choice2").empty();
+            $(".choice2").css('background', 'black');
             $(".choice3").empty();
+            $(".choice3").css('background', 'black');
             $(".choice4").empty();
+            $(".choice4").css('background', 'black');
             loadNextQuestion();
         }
     })
@@ -883,9 +944,13 @@ $(document).ready(function () {
             document.querySelector(".result").innerHTML = randQuestion.ifRight;
             $(".question").empty();
             $(".choice1").empty();
+            $(".choice1").css('background', 'black');
             $(".choice2").empty();
+            $(".choice2").css('background', 'black');
             $(".choice3").empty();
+            $(".choice3").css('background', 'black');
             $(".choice4").empty();
+            $(".choice4").css('background', 'black');
             loadNextQuestion();
         }
         else {
@@ -895,9 +960,13 @@ $(document).ready(function () {
             document.querySelector(".result").innerHTML = randQuestion.ifWrong;
             $(".question").empty();
             $(".choice1").empty();
+            $(".choice1").css('background', 'black');
             $(".choice2").empty();
+            $(".choice2").css('background', 'black');
             $(".choice3").empty();
+            $(".choice3").css('background', 'black');
             $(".choice4").empty();
+            $(".choice4").css('background', 'black');
             loadNextQuestion();
         }
     })
