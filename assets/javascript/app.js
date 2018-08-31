@@ -441,7 +441,7 @@ $(document).ready(function () {
         ifWrong: "Wrong! The correct answer is 12 minutes."
     },
     {
-        question: "Which city does not currently have an NBA team",
+        question: "Which city does not currently have an NBA team?",
         choice1: "Salt Lake City",
         choice2: "Phoenix",
         choice3: "Charlotte",
@@ -687,7 +687,7 @@ $(document).ready(function () {
     //***initialize isn't working
 
     //first question
-    randQuestion = questionsAndChoices[Math.floor(Math.random() * questionsAndChoices.length)];
+    /*randQuestion = questionsAndChoices[Math.floor(Math.random() * questionsAndChoices.length)];
     console.log(questionsAndChoices.length);
     //console.log("Current Array: ", currentArray.question);
     $(".question").append(randQuestion.question);
@@ -707,23 +707,40 @@ $(document).ready(function () {
 
 
     //***times out, but doesn't load next question. set it for the full game for now
-    let seconds_left = 90;
-    let interval = setInterval(function () {
+   /* let seconds_left = 20;
+    let interval4 = setInterval(function () {
         document.getElementById('timer').innerHTML = --seconds_left;
 
         if (seconds_left <= 0) {
             document.getElementById('timer').innerHTML = "Time's up! Click the logo below to play again";
-            clearInterval(interval);
-            $(".question-wrapper").empty();
-            $(".play-again").append("<img src =assets/images/nbalogo.jpg><br>Click the image to play again.");
+            clearInterval(interval4);
+            //seconds_left = 10;
+            $(".question").empty();
+            $(".choice1").empty();
+            $(".choice1").css('background', 'black');
+            $(".choice2").empty();
+            $(".choice2").css('background', 'black');
+            $(".choice3").empty();
+            $(".choice3").css('background', 'black');
+            $(".choice4").empty();
+            $(".choice4").css('background', 'black');
+            //$(".play-again").append("<img src =assets/images/nbalogo.jpg><br>Click the image to play again.");
+            loadNextQuestion();
+            //console.log('seconds left', --seconds_left);
         }
-    }, 1000);
+        if ($(".choice1").clicked === true ) {
+            clearInterval(interval4);
+            console.log('interval cleared')
+        }
+    }, 1000);*/
 
     function initializeGame() {
+        console.log("Initialize Game Successful");
         correct = 0;
         incorrect = 0;
+        $(".play-again").empty();
+        document.querySelector("#timer").innerHTML = "10";
         randQuestion = questionsAndChoices[Math.floor(Math.random() * questionsAndChoices.length)];
-        
         $(".question").append(randQuestion.question);
         $(".choice1").append(randQuestion.choice1);
         $(".choice1").css('background', 'orange');
@@ -734,19 +751,74 @@ $(document).ready(function () {
         $(".choice4").append(randQuestion.choice4);
         $(".choice4").css('background', 'orange');
         used.push(randQuestion);
-    }
 
+     seconds_left = 20;
+        let interval = setInterval(function () {
+            document.getElementById('timer').innerHTML = --seconds_left;
+    
+            if (seconds_left <= 0) {
+                document.getElementById('timer').innerHTML = "Time's up! Click the logo below to play again";
+                clearInterval(interval);
+                //seconds_left = 10;
+                $(".question").empty();
+            $(".choice1").empty();
+            $(".choice1").css('background', 'black');
+            $(".choice2").empty();
+            $(".choice2").css('background', 'black');
+            $(".choice3").empty();
+            $(".choice3").css('background', 'black');
+            $(".choice4").empty();
+            $(".choice4").css('background', 'black');
+            //$('.result').css('color', 'black');
+                //$(".play-again").append("<img src =assets/images/nbalogo.jpg><br>Click the image to play again.");
+                loadNextQuestion();
+                //console.log('seconds left', --seconds_left);
+            }
+            if ($(".choice1").click === true ) {
+                console.log('CHOICE 1 CLICKED');
+                clearInterval(interval);
+                console.log('interval cleared');
+            }
+        }, 1000);
+    }
     function loadNextQuestion() {
+        console.log("loadNextQuestion loaded");
         randQuestion = questionsAndChoices[Math.floor(Math.random() * questionsAndChoices.length)];
         //testing below - seems to work 8/26
-        for( let i = questionsAndChoices.length-1; i--;){
+        for( let i = questionsAndChoices.length-1; i--) {
             if (used.includes(questionsAndChoices[i]) === true) questionsAndChoices.splice(i, 1);
             }
             console.log("Questions and choices after splice: ", questionsAndChoices.length);
             console.log("New Q&Choice Array: ", questionsAndChoices);
            // console.log("Current Array after 1st loop: ", currentArray.question);
         //let i = randQuestion;
-        
+        seconds_left = 20;
+        let interval3 = setInterval(function () {
+            document.getElementById('timer').innerHTML = --seconds_left;
+    
+            if (seconds_left <= 0) {
+                document.getElementById('timer').innerHTML = "Time's up! Click the logo below to play again";
+                clearInterval(interval3);
+                //seconds_left = 10;
+                $(".question").empty();
+            $(".choice1").empty();
+            $(".choice1").css('background', 'black');
+            $(".choice2").empty();
+            $(".choice2").css('background', 'black');
+            $(".choice3").empty();
+            $(".choice3").css('background', 'black');
+            $(".choice4").empty();
+            $(".choice4").css('background', 'black');
+            //$('.result').css('color', 'black');
+                $(".play-again").append("<img src =assets/images/nbalogo.jpg><br>Click the image to play again.");
+                loadNextQuestion();
+                //console.log('seconds left', --seconds_left);
+            }
+            if ($(".choice1").clicked === true ) {
+                clearInterval(interval3);
+                console.log('interval cleared')
+            }
+        }, 1000);
         //set timer here to have question/choices appear in 1 sec...
         //...the choice buttons still show
 
@@ -786,7 +858,7 @@ $(document).ready(function () {
 
     used.push(randQuestion);
         //set timeout for result to disappear in 1 sec
-        let clearResult = 4;
+        let clearResult = 1;
         let interval2= setInterval(function () {
              //$("#test").append(--clearResult);
              --clearResult
@@ -803,7 +875,7 @@ $(document).ready(function () {
         $(".choice3").css('background', 'orange');
         $(".choice4").append(randQuestion.choice4);
         $(".choice4").css('background', 'orange');
-        
+        $(".answer-image").empty();
              }
          }, 1000);
         
@@ -816,6 +888,10 @@ $(document).ready(function () {
             $(".done").append("You got " + correct + " answers correct and " + incorrect + " answers incorrect.");
             done = true;
             console.log('done', done);
+            correct = 0;
+            console.log('correct: ', correct);
+            incorrect = 0;
+            console.log('incorrect: ', incorrect);
             $(".play-again").append("<img src =assets/images/nbalogo.jpg><br>Click the image to play again.");
         }
     }
@@ -829,6 +905,7 @@ $(document).ready(function () {
             document.querySelector(".correct").innerHTML = correct;
             document.querySelector(".result").innerHTML = randQuestion.ifRight;
             //$(".choices").empty();
+            //$(".answer-image").append("<img src=assets/images/nbalogo.jpg>")
             $(".question").empty();
             $(".choice1").empty();
             $(".choice1").css('background', 'black');
@@ -847,6 +924,7 @@ $(document).ready(function () {
             incorrect++;
             document.querySelector(".incorrect").innerHTML = incorrect;
             document.querySelector(".result").innerHTML = randQuestion.ifWrong;
+            //$(".answer-image").append("<img src=assets/images/nbalogo.jpg>")
             $(".question").empty();
             $(".choice1").empty();
             $(".choice1").css('background', 'black');
@@ -980,8 +1058,11 @@ $(document).ready(function () {
         //correct = 0; //this reset the score, but nothing happens when start is clicked after a game resets
         //incorrect = 0;
         console.log('total score', parseInt(correct) + parseInt(incorrect));
-        //initializeGame();
-        location.reload();
+        initializeGame();
+        //location.reload();
+    })
+    $(".start").on('click', function() {
+        initializeGame();
     })
     $(".timeout").on("click", function () {
         console.log('clicked');
