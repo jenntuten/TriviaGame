@@ -650,16 +650,7 @@ $(document).ready(function () {
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is LeBron James."
     },
-    /*{
-        question: "",
-        choice1: "",
-        choice2: "",
-        choice3: "",
-        choice4: "",
-        answer: "",
-        ifRight: "Correct!",
-        ifWrong: "Wrong! The correct answer is ."
-    },
+    /*
     {
         question: "",
         choice1: "",
