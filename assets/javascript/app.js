@@ -675,6 +675,7 @@ $(document).ready(function () {
     //create a "currentGame" array, push [0-9] from questionsAndChoices to that array
 
     //*set initialize function following start to set parameters (or get rid of start button)
+    
     //***initialize isn't working
 
     //first question
