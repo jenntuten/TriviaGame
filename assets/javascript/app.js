@@ -797,7 +797,7 @@ $(document).ready(function () {
         
              }
          }, 1000);
-        
+        //
         
         console.log('used array:', used);
         
