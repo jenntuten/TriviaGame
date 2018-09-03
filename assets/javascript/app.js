@@ -221,7 +221,7 @@ $(document).ready(function () {
         image: "<img src=kazaam.jpg><br>",
         tidbit: "Shaq has dabbled in many other ventures besides basketball in his career, including a rap album and numerous TV and film appearances."
     },
-    {
+    /*{
         question: "Where did the Grizzlies call home before they moved to Memphis?",
         choices: ["Seattle","St. Louis","San Diego","Vancouver"],
         answer: "Vancouver",
@@ -238,7 +238,7 @@ $(document).ready(function () {
         ifWrong: "Wrong! The correct answer is Los Angeles Lakers.",
         image: "<img src=lakers.jpg><br>",
         tidbit: "They also had a three-peat in the early 2000s."
-    },
+    },*/
     {
         question: "Which team has not won back-to-back NBA championships?",
         choices: ["Golden State Warriors", "Chicago Bulls", "Houston Rockets", "San Antonio Spurs"],
