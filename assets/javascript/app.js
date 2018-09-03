@@ -10,8 +10,6 @@ $(document).ready(function () {
     //clicking Start or Play Again will send the game into an infinite loop; disable buttons?
     //the exception is if 10 questions have been answered. At that point it'll just start again as expected.
 
-    //rearrange timer so that it doesn't interfere with buttons (shifting when timer re-starts)
-
     //refactor array and add pictures or facts
     //let currentArray;
 
@@ -214,6 +212,7 @@ $(document).ready(function () {
     function initializeGame() {
         correct = 0;
         incorrect = 0;
+        $('.start').hide();
         randQuestion = questionsAndChoices[Math.floor(Math.random() * questionsAndChoices.length)];
         $(".question").append(randQuestion.question);
         $(".choice1").append(randQuestion.choices[0]);
@@ -290,6 +289,8 @@ $(document).ready(function () {
         console.log('used array:', used);
         if (parseInt(correct) + parseInt(incorrect) >= 10) {
             clearInterval(interval);
+            clearInterval(interval2);
+            $('.start').show();
             console.log('all done!');
             $(".timer").html('0');
             $(".question").empty();
@@ -444,6 +445,12 @@ $(document).ready(function () {
     })
     $(".start").on("click", function () {
         initializeGame();
+        correct=0;
+        incorrect=0;
         console.log('game initialized');
+        $(".result").empty();
+        $(".done").empty();
+        document.querySelector(".correct").innerHTML = 0;
+        document.querySelector(".incorrect").innerHTML = 0;
     })
 })
