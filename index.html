@@ -51,16 +51,37 @@ button:focus {outline:0;}
         margin-bottom: 10px;
         border-radius: 4px; */
     }
-
-    .start {
-        background: gray;
-    }
+    
+.correct-div
+{position: relative;
+  display: inline-block;
+  width: 80px;
+  
+}
+.incorrect-div
+{width: 80px;
+  position: relative;
+  display: inline-block;
+}
+.timeDiv
+{width: 80px;
+  position: relative;
+  display: inline-block;
+}
+#timer
+{width: 80px;
+  
+}
+.start {
+background: gray;
+}
     </style>
-    <img src ="assets/images/nba-logo.png" height = 160px width = 80px>
+    <div class="topDiv"><img src ="assets/images/nba-logo.png" height = 160px width = 80px></div>
     <div class="correct-div">Correct: <div class = "correct">0</div></div>
     <div class="incorrect-div">Incorrect: <div class="incorrect">0</div></div>
-    <div class="timeDiv">Time: <div id="timer">90</div></div>
-    <button class="start">Start</button><br>
+    <div class="timeDiv">Time: <div id="timer">10</div></div>
+    <br>
+    <button class="start">Start</button>
     <div class="answer-image"></div>
     <div class="question-wrapper"><br>
     <!--<div class="pic-holder"><img src="nbalogo.jpg"></div>-->
@@ -79,8 +100,8 @@ button:focus {outline:0;}
 <h2 class = "done"></h2>
     <br>
     <br>
-    <div class="play-again"><img src="assets/images/nbalogo.jpg"height = 100 px width = 100 px><br>Click the Image to Play Again</div>
-    <!--<button class="next-question">Next</button>-->
+    <!--<div class="play-again"><img src="assets/images/nbalogo.jpg"height = 100 px width = 100 px><br>Click the Image to Play Again</div>
+    <!<button class="next-question">Next</button>-->
     <h3 class="result"></h3>
 </body>
 </html>
