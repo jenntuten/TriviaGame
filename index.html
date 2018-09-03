@@ -13,7 +13,7 @@
 <body>
     <style>
     body {
-        background: black;
+        background: url("wallpaper.jpg");
         color: white;
         text-align: center;
         align-content: center;
@@ -29,7 +29,13 @@ button:focus {outline:0;}
         font-weight: bold;
     }
     .question-wrapper {
-        height: 180px;
+        width: 80%;
+        height: auto;
+        background: black;
+        margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
     }
     .choice1, .choice2, .choice3, .choice4 {
         color: black;
@@ -75,14 +81,17 @@ button:focus {outline:0;}
 .start {
 background: gray;
 }
-    </style>
+    </style><div class="question-wrapper"><br>
     <div class="topDiv"><img src ="assets/images/nba-logo.png" height = 160px width = 80px></div>
     <div class="correct-div">Correct: <div class = "correct">0</div></div>
     <div class="incorrect-div">Incorrect: <div class="incorrect">0</div></div>
     <div class="timeDiv">Time: <div id="timer">10</div></div>
     <br>
-    <button class="start">Start</button>
+    <button class="start">Start</button><br><br>
+    <h3 class="result"></h3>
     <div class="answer-image"></div>
+    
+    <h2 class = "done"></h2>
     <div class="question-wrapper"><br>
     <!--<div class="pic-holder"><img src="nbalogo.jpg"></div>-->
     <div class="question"></div><br>
@@ -95,13 +104,12 @@ background: gray;
 </div>
 
 </div>
-<div class="timeout"></div>
-<div id="test"><h3></h3></div>
-<h2 class = "done"></h2>
+
+
     <br>
     <br>
     <!--<div class="play-again"><img src="assets/images/nbalogo.jpg"height = 100 px width = 100 px><br>Click the Image to Play Again</div>
     <!<button class="next-question">Next</button>-->
-    <h3 class="result"></h3>
+    
 </body>
 </html>
