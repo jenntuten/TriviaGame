@@ -15,25 +15,28 @@ $(document).ready(function () {
     //This array is massive; I minimize it to navigate through the rest of the code more easily
     let questionsAndChoices = [{
         question: "What number did Michael Jordan wear at the end of the 1994-95 season?",
-        choices: ["23","32","45","22"],
+        choices: ["23","32","45","12"],
         answer: "45",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is 45.",
-        image: "<img src=Jordan_45jersey.jpg><br>"
+        image: "<img src=Jordan_45jersey.jpg><br>",
+        tidbit: "Jordan wore jersey #45 after his first retirement from basketball."
     }, {
         question: "Where did the Los Angeles Lakers originate?",
         choices: ["San Diego","Minneapolis","San Francisco","St. Louis"],
         answer: "Minneapolis",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Minneapolis.",
-        image: "<img src=mpls-lakers.jpg><br>"
+        image: "<img src=mpls-lakers.jpg><br>",
+        tidbit: "The team name was derived from Minnesota's nickname, the 'Land of 10,000 Lakes.'"
     }, {
         question: "Which team won the 1999 NBA Finals?",
         choices: ["San Antonio Spurs","New York Knicks","Los Angeles Lakers","Chicago Bulls"],
         answer: "San Antonio Spurs",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is San Antonio Spurs.",
-        image: "<img src=spurs-1999-champs.jpg><br>"
+        image: "<img src=spurs-1999-champs.jpg><br>",
+        tidbit: "The San Antonio Spurs won their first NBA title playing against the New York Knicks."
     },
     {
         question: "Who is the NBA's all-time points leader?",
@@ -41,7 +44,8 @@ $(document).ready(function () {
         answer: "Kareem Abdul-Jabbar",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Kareem Abdul-Jabbar.",
-        image: "<img src=kareem.jpg><br>"
+        image: "<img src=kareem.jpg><br>",
+        tidbit: "Abdul-Jabbar scored 38,387 points throughout his NBA career."
     },
     /*{
         question: "Whose silhouette is used for the NBA logo?",
@@ -63,7 +67,8 @@ $(document).ready(function () {
         answer: "Wilt Chamberlain",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Wilt Chamberlain.",
-        image: "<img src=wilt-100pt.jpg><br>"
+        image: "<img src=wilt-100pt.jpg><br>",
+        tidbit: "Chamberlain scored 100 points for the Philadelphia Warriors in a 169–147 win vs. the New York Knicks on March 2, 1962."
     },
     /*{
         question: "Which team holds the record for highest number of wins in one season?",
@@ -92,7 +97,8 @@ $(document).ready(function () {
         answer: "San Antonio Spurs",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is San Antonio Spurs.",
-        image: "<img src=rodman-spurs.jpg><br>"
+        image: "<img src=rodman-spurs.jpg><br>",
+        tidbit: "Rodman's personality clashed with that of head coach Gregg Popovich, resulting in a brief stint with San Antonio."
     },
     /*{
         question: "As of 2018, what is Kevin Durant's jersey number?",
@@ -114,7 +120,8 @@ $(document).ready(function () {
         answer: "David Robinson",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is David Robinson.",
-        image: "<img src=david-robinson.jpg><br>"
+        image: "<img src=david-robinson.jpg><br>",
+        tidbit: "Robinson recorded 34 points, 10 rebounds, 10 assists and 10 blocks on Feb. 17, 1994 against the Detroit Pistons."
     },
     {
         question: "Which former NBA player's nickname was 'The Answer'?",
@@ -122,7 +129,8 @@ $(document).ready(function () {
         answer: "Allen Iverson",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Allen Iverson.",
-        image: "<img src=allen-iverson.jpg><br>"
+        image: "<img src=allen-iverson.jpg><br>",
+        tidbit: "Although he had the nickname since high school, it became more of an answer to the Sixers' questions of regaining their place in the NBA."
     },
     /*{
         question: "Which former NBA player's nickname was 'The Iceman'?",
@@ -137,7 +145,8 @@ $(document).ready(function () {
         answer: "Julius Erving",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Julius Erving.",
-        image: "<img src=drj.jpg><br>"
+        image: "<img src=drj.jpg><br>",
+        tidbit: "The origins of this nickname are unclear but it's said that he has had the nickname since high school."
     },
     {
         question: "Who played for Duke University?",
@@ -145,7 +154,8 @@ $(document).ready(function () {
         answer: "Kyrie Irving",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Kyrie Irving.",
-        image: "<img src=kyrie-irvin.jpg><br>"
+        image: "<img src=kyrie-irvin.jpg><br>",
+        tidbit: "Leonard attended San Diego State, O'Neal attended LSU, and Michael Jordan attended UNC."
     },
     /*{
         question: "Which team won the 2016 NBA Finals?",
@@ -160,7 +170,8 @@ $(document).ready(function () {
         answer: "24",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is 24.",
-        image: "<img src=shot-clock.jpg><br>"
+        image: "<img src=shot-clock.jpg><br>",
+        tidbit: "Each team has 24 seconds to score before the opposing team gets the ball."
     },
     {
         question: "Which team has won the most titles?",
@@ -168,7 +179,8 @@ $(document).ready(function () {
         answer: "Boston Celtics",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Boston Celtics.",
-        image: "<img src=celtics.jpg><br>"
+        image: "<img src=celtics.jpg><br>",
+        tidbit: "Boston has won 17 championships."
     },
     /*{
         question: "Which team's mascot is a gorilla?",
@@ -183,7 +195,8 @@ $(document).ready(function () {
         answer: "Denver Nuggets vs. Detroit Pistons",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Denver Nuggets vs. Detroit Pistons.",
-        image: "<img src=pistons-nuggets.jpg><br>"
+        image: "<img src=pistons-nuggets.jpg><br>",
+        tidbit: "The Pistons beat the Nuggets by 2 points in a 186-184 matchup."
     },
     /*{
         question: "Which team did Shaquille O'Neal <em>NOT</em> play for during his career?",
@@ -205,7 +218,8 @@ $(document).ready(function () {
         answer: "Shaquille O'Neal",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Shaquille O'Neal.",
-        image: "<img src=kazaam.jpg><br>"
+        image: "<img src=kazaam.jpg><br>",
+        tidbit: "Shaq has dabbled in many other ventures besides basketball in his career, including a rap album and numerous TV and film appearances."
     },
     {
         question: "Where did the Grizzlies call home before they moved to Memphis?",
@@ -213,7 +227,8 @@ $(document).ready(function () {
         answer: "Vancouver",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Vancouver.",
-        image: "<img src=grizzlies.png><br>"
+        image: "<img src=grizzlies.png><br>",
+        tidbit: ""
     },
     {
         question: "Which team won the 2009 and 2010 NBA Finals back-to-back?",
@@ -221,7 +236,8 @@ $(document).ready(function () {
         answer: "Los Angeles Lakers",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Los Angeles Lakers.",
-        image: "<img src=lakers.jpg><br>"
+        image: "<img src=lakers.jpg><br>",
+        tidbit: "They also had a three-peat in the early 2000s."
     },
     {
         question: "Which team has not won back-to-back NBA championships?",
@@ -229,7 +245,8 @@ $(document).ready(function () {
         answer: "San Antonio Spurs",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is San Antonio Spurs.",
-        image: "<img src=spurs-champs.jpg><br>"
+        image: "<img src=spurs-champs.jpg><br>",
+        tidbit: "Golden State Warriors most recently had back-to-back championships in 2017 and 2018, Houston in 1994 and 1995, and Chicago dominated the 1990s with several titles."
     },
     {
         question: "Which former player was nicknamed 'The Admiral'?",
@@ -237,7 +254,8 @@ $(document).ready(function () {
         answer: "David Robinson",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is David Robinson.",
-        image: "<img src=theadmiral.jpg><br>"
+        image: "<img src=theadmiral.jpg><br>",
+        tidbit: "Robinson attended the Naval Academy and ranked as a Lieutenant Junior Grade."
     },
     {
         question: "Which NBA player's first name is Wardell?",
@@ -245,7 +263,8 @@ $(document).ready(function () {
         answer: "Stephen Curry",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Stephen Curry.",
-        image: "<img src=steph-curry.jpg><br>"
+        image: "<img src=steph-curry.jpg><br>",
+        tidbit: "Named after his father, Curry's full name is Wardell Stephen Curry."
     },
     {
         question: "Which former NBA player was not a member of the 1992 U.S. Olympic Dream Team?",
@@ -253,7 +272,8 @@ $(document).ready(function () {
         answer: "Hakeem Olajuwon",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Hakeem Olajuwon.",
-        image: "<img src=dream-team.jpg><br>"
+        image: "<img src=dream-team.jpg><br>",
+        tidbit: "Magic Johnson, Karl Malone and Patrick Ewing were on the Dream Team."
     },
     {
         question: "What is the name of the Golden State Warriors' home arena?",
@@ -261,7 +281,8 @@ $(document).ready(function () {
         answer: "Oracle Arena",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Oracle Arena.",
-        image: "<img src=oracle-arena.jpg><br>"
+        image: "<img src=oracle-arena.jpg><br>",
+        tidbit: "Oracle Arena, nicknamed 'Roaracle', is located in Oakland, CA."
     },
     {
         question: "Which former NBA player made an appearance in the 1980 movie <em>Airplane!</em>?",
@@ -269,7 +290,8 @@ $(document).ready(function () {
         answer: "Kareem Abdul-Jabbar",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Kareem Abdul-Jabbar.",
-        image: "<img src=kareem-airplane.jpg><br>"
+        image: "<img src=kareem-airplane.jpg><br>",
+        tidbit: "Kareem played a co-pilot in the film."
     },
     {
         question: "How many NBA teams are based outside the United States?",
@@ -277,7 +299,8 @@ $(document).ready(function () {
         answer: "1",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is 1.",
-        image: "<img src=raptors.png><br>"
+        image: "<img src=raptors.png><br>",
+        tidbit: "The Toronto Raptors are the only team currently based outside the U.S."
     },
     {
         question: "Which NBA superstar was drafted out of high school?",
@@ -285,7 +308,8 @@ $(document).ready(function () {
         answer: "LeBron James",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is LeBron James.",
-        image: "<img src=lebron.jpg><br>"
+        image: "<img src=lebron.jpg><br>",
+        tidbit: "Michael Jordan attended UNC, Shaq played for LSU and Kevin Durant attended University of Texas."
     },
     ];
 
@@ -299,6 +323,8 @@ $(document).ready(function () {
         correct = 0;
         incorrect = 0;
         $('.start').hide();
+        $('.answer-image').empty();
+        $('.tidbit').empty();
         randQuestion = questionsAndChoices[Math.floor(Math.random() * questionsAndChoices.length)];
         $(".question").append(randQuestion.question);
         $(".choice1").append(randQuestion.choices[0]);
@@ -362,6 +388,7 @@ $(document).ready(function () {
                 clearInterval(interval2);
                 $(".result").empty();
                 $('.answer-image').empty();
+                $('.tidbit').empty();
                 $(".question").append(randQuestion.question);
                 $(".choice1").append(randQuestion.choices[0]);
                 $(".choice1").css('background', 'orange');
@@ -397,6 +424,7 @@ $(document).ready(function () {
     $(".choice1").on('click', function () {
         clearInterval(interval);
         $("#timer").html('0');
+        $('.tidbit').append(randQuestion.tidbit);
         $('.answer-image').append(randQuestion.image);
         console.log('choice1 clicked');
         $(".question").empty();
@@ -432,6 +460,7 @@ $(document).ready(function () {
     $(".choice2").on('click', function () {
         clearInterval(interval);
         $("#timer").html('0');
+        $('.tidbit').append(randQuestion.tidbit);
         $('.answer-image').append(randQuestion.image);
         $(".question").empty();
             $(".choice1").empty();
@@ -464,6 +493,7 @@ $(document).ready(function () {
     $(".choice3").on('click', function () {
         clearInterval(interval);
         $("#timer").html('0');
+        $('.tidbit').append(randQuestion.tidbit);
         $('.answer-image').append(randQuestion.image);
         $(".question").empty();
             $(".choice1").empty();
@@ -495,6 +525,7 @@ $(document).ready(function () {
     })
     $(".choice4").on('click', function () {
         console.log('choices clicked');
+        $('.tidbit').append(randQuestion.tidbit);
         $("#timer").html('0');
         $('.answer-image').append(randQuestion.image);
         $(".question").empty();
