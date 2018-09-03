@@ -1,122 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Test your NBA knowledge!</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/app.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-    <style>
-    body {
-        background: url("wallpaper.jpg");
-        color: white;
-        text-align: center;
-        align-content: center;
-        /*font-family: Arial, Helvetica, sans-serif;*/
-    }
-    button {background: none;
-    border: none !important;
-    border-radius: 4px;
-    color: black;
-}
-button:focus {outline:0;}
-    .question {
-        font-weight: bold;
-    }
-    .question-wrapper {
-        width: 70%;
-        height: auto;
-        background: black;
-        margin-left: auto;
-            margin-right: auto;
-            left: 0;
-            right: 0;
-    }
-    .choice1, .choice2, .choice3, .choice4 {
-        color: black;
-        width: 280px;
-        height: 30px;
-        /*background: orange;*/
-        margin-bottom: 10px;
-        /*border-radius: 4px;*/
-    }
-    .choices {
-        height: 300px;
-        text-align: center;
-        margin: 0 auto;
-        
-        /*border: 10px red;
-        width: 180px;
-        height: 30px;
-        /*background: blue;
-        margin-bottom: 10px;
-        border-radius: 4px; */
-    }
-    
-.correct-div
-{position: relative;
-  display: inline-block;
-  width: 80px;
-  
-}
-.incorrect-div
-{width: 80px;
-  position: relative;
-  display: inline-block;
-}
-.timeDiv
-{width: 80px;
-  position: relative;
-  display: inline-block;
-}
-#timer
-{width: 80px;
-  
-}
-.start {
-background: gray;
-}
-
-@media screen and (max-width: 640px) {
-    .question-wrapper {
-        width: 90%;
-    }
-}
-    </style><div class="question-wrapper"><br>
-    <div class="topDiv"><img src ="assets/images/nba-logo.png" height = 160px width = 80px></div>
-    <div class="correct-div">Correct: <div class = "correct">0</div></div>
-    <div class="incorrect-div">Incorrect: <div class="incorrect">0</div></div>
-    <div class="timeDiv">Time: <div id="timer">10</div></div>
-    <br>
-    <button class="start">Start</button><br><br>
-    <h3 class="result"></h3>
-    <div class="tidbit"></div>
-    <div class="answer-image"></div>
-    
-    <h2 class = "done"></h2>
-    <div class="question-wrapper"><br>
-    <!--<div class="pic-holder"><img src="nbalogo.jpg"></div>-->
-    <div class="question"></div><br>
- <!--  <div class="choices"></div>-->
- <div class="choices">
-    <button class="choice1" id="choice1"></button><br>
-    <button class="choice2" id="choice2"></button><br>
-    <button class="choice3" id="choice3"></button><br>
-    <button class="choice4"id="choice4"></button><br>   
-</div>
-
-</div>
-
-
-    <br>
-    <br>
-    <!--<div class="play-again"><img src="assets/images/nbalogo.jpg"height = 100 px width = 100 px><br>Click the Image to Play Again</div>
-    <!<button class="next-question">Next</button>-->
-    
+      <style>
+        body {
+            background: url("assets/images/wallpaper.jpg");
+        }
+        </style>
+                
+    <div class="question-wrapper">
+        <br>
+        <div class="topDiv">
+            <img src="assets/images/nba-logo.png" height=160px width=80px>
+        </div>
+        <p>Test Your NBA Knowledge!</p>
+        <div class="correct-div">Correct:
+            <div class="correct">0</div>
+        </div>
+        <div class="incorrect-div">Incorrect:
+            <div class="incorrect">0</div>
+        </div>
+        <div class="timeDiv">Time:
+            <div id="timer">10</div>
+        </div>
+        <br>
+        <button class="start">Start</button>
+        <br>
+        <h3 class="result"></h3>
+        <p class="tidbit"></p>
+        <div class="answer-image"></div>
+        <h2 class="done"></h2>
+        <div class="question-wrapper">
+            <br>
+            <p class="question"></p>
+            <br>
+            <div class="choices">
+                <button class="choice1" id="choice1"></button>
+                <br>
+                <button class="choice2" id="choice2"></button>
+                <br>
+                <button class="choice3" id="choice3"></button>
+                <br>
+                <button class="choice4" id="choice4"></button>
+                <br>
+            </div>
+        </div>
 </body>
+
 </html>

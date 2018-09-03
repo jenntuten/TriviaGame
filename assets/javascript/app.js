@@ -4,13 +4,10 @@ $(document).ready(function () {
     let answer;
     let done = false;
     let used = [];
-    let seconds_left;
+    let secondsLeft;
     let interval;
     
-    //add "the answer was..." to result after timeout. (and picture, if applicable)
-    
-    //refactor array and add pictures or facts
-    //let currentArray;
+    //add answer and tidbit after timeout
 
     //This array is massive; I minimize it to navigate through the rest of the code more easily
     let questionsAndChoices = [{
@@ -19,7 +16,7 @@ $(document).ready(function () {
         answer: "45",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is 45.",
-        image: "<img src=Jordan_45jersey.jpg><br>",
+        image: "<img src=assets/images/Jordan_45jersey.jpg><br>",
         tidbit: "Jordan wore jersey #45 after his first retirement from basketball."
     }, {
         question: "Where did the Los Angeles Lakers originate?",
@@ -27,7 +24,7 @@ $(document).ready(function () {
         answer: "Minneapolis",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Minneapolis.",
-        image: "<img src=mpls-lakers.jpg><br>",
+        image: "<img src=assets/images/mpls-lakers.jpg><br>",
         tidbit: "The team name was derived from Minnesota's nickname, the 'Land of 10,000 Lakes.'"
     }, {
         question: "Which team won the 1999 NBA Finals?",
@@ -35,7 +32,7 @@ $(document).ready(function () {
         answer: "San Antonio Spurs",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is San Antonio Spurs.",
-        image: "<img src=spurs-1999-champs.jpg><br>",
+        image: "<img src=assets/images/spurs-1999-champs.jpg><br>",
         tidbit: "The San Antonio Spurs won their first NBA title playing against the New York Knicks."
     },
     {
@@ -44,7 +41,7 @@ $(document).ready(function () {
         answer: "Kareem Abdul-Jabbar",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Kareem Abdul-Jabbar.",
-        image: "<img src=kareem.jpg><br>",
+        image: "<img src=assets/images/kareem.jpg><br>",
         tidbit: "Abdul-Jabbar scored 38,387 points throughout his NBA career."
     },
     /*{
@@ -67,8 +64,17 @@ $(document).ready(function () {
         answer: "Wilt Chamberlain",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Wilt Chamberlain.",
-        image: "<img src=wilt-100pt.jpg><br>",
+        image: "<img src=assets/images/wilt-100pt.jpg><br>",
         tidbit: "Chamberlain scored 100 points for the Philadelphia Warriors in a 169–147 win vs. the New York Knicks on March 2, 1962."
+    },
+    {
+        question: "What is Magic Johnson's first name?",
+        choices: ["Paul", "Earvin", "Marvin","Marcus"],
+        answer: "Earvin",
+        ifRight: "Correct!",
+        ifWrong: "Wrong! The correct answer is Earvin.",
+        image: "<img src=assets/images/magic1.jpg><br>",
+        tidbit: "Magic earned his nickname in high school as a triple-double threat and continued the trend with the 'Showtime Lakers'."
     },
     /*{
         question: "Which team holds the record for highest number of wins in one season?",
@@ -97,7 +103,7 @@ $(document).ready(function () {
         answer: "San Antonio Spurs",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is San Antonio Spurs.",
-        image: "<img src=rodman-spurs.jpg><br>",
+        image: "<img src=assets/images/rodman-spurs.jpg><br>",
         tidbit: "Rodman's personality clashed with that of head coach Gregg Popovich, resulting in a brief stint with San Antonio."
     },
     /*{
@@ -106,24 +112,26 @@ $(document).ready(function () {
         answer: "35",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is 35."
-    },
+    },*/
     {
         question: "As of 2018, which player has the highest career free-throw percentage?",
         choices: ["Dirk Nowitzki","Steph Curry","James Harden", "Steve Nash"],
         answer: "Steve Nash",
         ifRight: "Correct!",
-        ifWrong: "Wrong! The correct answer is Steve Nash."
-    },*/
+        ifWrong: "Wrong! The correct answer is Steve Nash.",
+        image: "<img src=assets/images/steve-nash.jpg><br>",
+        tidbit: "Steve Nash finished his career with a 90.4% free-throw percentage."
+    },
     {
         question: "Two former San Antonio Spurs players have recorded a quadruple-double. Which player was one of the two?",
         choices: ["Tim Duncan","Manu Ginobili", "David Robinson","George Gervin"],
         answer: "David Robinson",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is David Robinson.",
-        image: "<img src=david-robinson.jpg><br>",
+        image: "<img src=assets/images/david-robinson.jpg><br>",
         tidbit: "Robinson recorded 34 points, 10 rebounds, 10 assists and 10 blocks on Feb. 17, 1994 against the Detroit Pistons."
     },
-    {
+    /*{
         question: "Which former NBA player's nickname was 'The Answer'?",
         choices: ["Allen Iverson","Latrell Sprewell","David Robinson","James Worthy"],
         answer: "Allen Iverson",
@@ -131,22 +139,24 @@ $(document).ready(function () {
         ifWrong: "Wrong! The correct answer is Allen Iverson.",
         image: "<img src=allen-iverson.jpg><br>",
         tidbit: "Although he had the nickname since high school, it became more of an answer to the Sixers' questions of regaining their place in the NBA."
-    },
-    /*{
+    },*/
+    {
         question: "Which former NBA player's nickname was 'The Iceman'?",
         choices: ["Julius Erving","Latrell Sprewell","George Gervin","Bill Russell"],
         answer: "George Gervin",
         ifRight: "Correct!",
-        ifWrong: "Wrong! The correct answer is George Gervin."
-    },*/
+        ifWrong: "Wrong! The correct answer is George Gervin.",
+        image: "<img src=assets/images/george-gervin.jpg><br>",
+        tidbit: "Gervin earned his nickname for his cool demeanor on the court."
+    },
     {
         question: "Which former NBA player's nickname was 'Dr. J'?",
         choices: ["Julius Erving","Jerry West","John Stockton","Jeff Hornacek"],
         answer: "Julius Erving",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Julius Erving.",
-        image: "<img src=drj.jpg><br>",
-        tidbit: "The origins of this nickname are unclear but it's said that he has had the nickname since high school."
+        image: "<img src=assets/images/drj.jpg><br>",
+        tidbit: "Erving was nicknamed “The Doctor” by a childhood friend because of the way he sliced through defenses to the rim and ‘operated’ on his opponents; the nickname was later shortened to Dr. J."
     },
     {
         question: "Who played for Duke University?",
@@ -154,23 +164,25 @@ $(document).ready(function () {
         answer: "Kyrie Irving",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Kyrie Irving.",
-        image: "<img src=kyrie-irvin.jpg><br>",
+        image: "<img src=assets/images/kyrie-irvin.jpg><br>",
         tidbit: "Leonard attended San Diego State, O'Neal attended LSU, and Michael Jordan attended UNC."
     },
-    /*{
+    {
         question: "Which team won the 2016 NBA Finals?",
         choices: ["Golden State Warriors", "Cleveland Cavaliers", "Boston Celtics","Los Angeles Lakers"],
         answer: "Cleveland Cavaliers",
         ifRight: "Correct!",
-        ifWrong: "Wrong! The correct answer is Cleveland Cavaliers."
-    },*/
+        ifWrong: "Wrong! The correct answer is Cleveland Cavaliers.",
+        image: "<img src=assets/images/cavs-16.jpg><br>",
+        tidbit: "With Golden State leading the series 3-1, the Cavs forced 7 games and won their first championship in franchise history."
+    },
     {
         question: "In the NBA, how many seconds are on the shot clock for each possession?",
         choices: ["20","24", "30", "45"],
         answer: "24",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is 24.",
-        image: "<img src=shot-clock.jpg><br>",
+        image: "<img src=assets/images/shot-clock.jpg><br>",
         tidbit: "Each team has 24 seconds to score before the opposing team gets the ball."
     },
     {
@@ -179,7 +191,7 @@ $(document).ready(function () {
         answer: "Boston Celtics",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Boston Celtics.",
-        image: "<img src=celtics.jpg><br>",
+        image: "<img src=assets/images/celtics.jpg><br>",
         tidbit: "Boston has won 17 championships."
     },
     /*{
@@ -195,7 +207,7 @@ $(document).ready(function () {
         answer: "Denver Nuggets vs. Detroit Pistons",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Denver Nuggets vs. Detroit Pistons.",
-        image: "<img src=pistons-nuggets.jpg><br>",
+        image: "<img src=assets/images/pistons-nuggets.jpg><br>",
         tidbit: "The Pistons beat the Nuggets by 2 points in a 186-184 matchup."
     },
     /*{
@@ -218,7 +230,7 @@ $(document).ready(function () {
         answer: "Shaquille O'Neal",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Shaquille O'Neal.",
-        image: "<img src=kazaam.jpg><br>",
+        image: "<img src=assets/images/kazaam.jpg><br>",
         tidbit: "Shaq has dabbled in many other ventures besides basketball in his career, including a rap album and numerous TV and film appearances."
     },
     /*{
@@ -245,7 +257,7 @@ $(document).ready(function () {
         answer: "San Antonio Spurs",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is San Antonio Spurs.",
-        image: "<img src=spurs-champs.jpg><br>",
+        image: "<img src=assets/images/spurs-champs.jpg><br>",
         tidbit: "Golden State Warriors most recently had back-to-back championships in 2017 and 2018, Houston in 1994 and 1995, and Chicago dominated the 1990s with several titles."
     },
     {
@@ -254,7 +266,7 @@ $(document).ready(function () {
         answer: "David Robinson",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is David Robinson.",
-        image: "<img src=theadmiral.jpg><br>",
+        image: "<img src=assets/images/theadmiral.jpg><br>",
         tidbit: "Robinson attended the Naval Academy and ranked as a Lieutenant Junior Grade."
     },
     {
@@ -263,7 +275,7 @@ $(document).ready(function () {
         answer: "Stephen Curry",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Stephen Curry.",
-        image: "<img src=steph-curry.jpg><br>",
+        image: "<img src=assets/images/steph-curry.jpg><br>",
         tidbit: "Named after his father, Curry's full name is Wardell Stephen Curry."
     },
     {
@@ -272,7 +284,7 @@ $(document).ready(function () {
         answer: "Hakeem Olajuwon",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Hakeem Olajuwon.",
-        image: "<img src=dream-team.jpg><br>",
+        image: "<img src=assets/images/dream-team.jpg><br>",
         tidbit: "Magic Johnson, Karl Malone and Patrick Ewing were on the Dream Team."
     },
     {
@@ -281,7 +293,7 @@ $(document).ready(function () {
         answer: "Oracle Arena",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Oracle Arena.",
-        image: "<img src=oracle-arena.jpg><br>",
+        image: "<img src=assets/images/oracle-arena.jpg><br>",
         tidbit: "Oracle Arena, nicknamed 'Roaracle', is located in Oakland, CA."
     },
     {
@@ -290,7 +302,7 @@ $(document).ready(function () {
         answer: "Kareem Abdul-Jabbar",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Kareem Abdul-Jabbar.",
-        image: "<img src=kareem-airplane.jpg><br>",
+        image: "<img src=assets/images/kareem-airplane.jpg><br>",
         tidbit: "Kareem played a co-pilot in the film."
     },
     {
@@ -299,7 +311,7 @@ $(document).ready(function () {
         answer: "1",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is 1.",
-        image: "<img src=raptors.png><br>",
+        image: "<img src=assets/images/raptors.png><br>",
         tidbit: "The Toronto Raptors are the only team currently based outside the U.S."
     },
     {
@@ -308,7 +320,7 @@ $(document).ready(function () {
         answer: "LeBron James",
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is LeBron James.",
-        image: "<img src=lebron.jpg><br>",
+        image: "<img src=assets/images/lebron.jpg><br>",
         tidbit: "Michael Jordan attended UNC, Shaq played for LSU and Kevin Durant attended University of Texas."
     },
     ];
@@ -328,18 +340,18 @@ $(document).ready(function () {
         randQuestion = questionsAndChoices[Math.floor(Math.random() * questionsAndChoices.length)];
         $(".question").append(randQuestion.question);
         $(".choice1").append(randQuestion.choices[0]);
-        $(".choice1").css('background', 'orange');
+        $(".choice1").css('background', '#CB8835');
         $(".choice2").append(randQuestion.choices[1]);
-        $(".choice2").css('background', 'orange');
+        $(".choice2").css('background', '#CB8835');
         $(".choice3").append(randQuestion.choices[2]);
-        $(".choice3").css('background', 'orange');
+        $(".choice3").css('background', '#CB8835');
         $(".choice4").append(randQuestion.choices[3]);
-        $(".choice4").css('background', 'orange');
+        $(".choice4").css('background', '#CB8835');
         used.push(randQuestion);
-        seconds_left = 11; //10 seconds put the counter starting at 9
+        secondsLeft = 11; //with 10 seconds, the counter starts at 9
         interval = setInterval(function () {
-            document.getElementById('timer').innerHTML = --seconds_left;
-            if (seconds_left <= 0) {
+            document.getElementById('timer').innerHTML = --secondsLeft;
+            if (secondsLeft <= 0) {
                 document.getElementById('timer').innerHTML = "Time's up!";
                 $(".question").empty();
                 $(".choice1").empty();
@@ -356,18 +368,22 @@ $(document).ready(function () {
     }
     function loadNextQuestion() {
         clearInterval(interval);
+        //this loop was intended to clear out questions already asked within a game, but it appears there are still some occasional duplicates.
         randQuestion = questionsAndChoices[Math.floor(Math.random() * questionsAndChoices.length)];
         for (let i = questionsAndChoices.length - 1; i--;) {
             if (used.includes(questionsAndChoices[i]) === true) questionsAndChoices.splice(i, 1);
         }
         console.log("Questions and choices after splice: ", questionsAndChoices.length);
-        seconds_left = 15;
+        secondsLeft = 15;
         interval = setInterval(function () {
-            document.getElementById('timer').innerHTML = --seconds_left;
-            if (seconds_left <= 0) {
+            document.getElementById('timer').innerHTML = --secondsLeft;
+            if (secondsLeft <= 0) {
                 document.getElementById('timer').innerHTML = "Time's up!";
+                $('.tidbit').append(randQuestion.tidbit);
+                $('.answer-image').append(randQuestion.image);
                 $(".question").empty();
                 $(".choice1").empty();
+                //without changing the CSS, the buttons remain on the screen (blank/orange)
                 $(".choice1").css('background', 'black');
                 $(".choice2").empty();
                 $(".choice2").css('background', 'black');
@@ -391,13 +407,13 @@ $(document).ready(function () {
                 $('.tidbit').empty();
                 $(".question").append(randQuestion.question);
                 $(".choice1").append(randQuestion.choices[0]);
-                $(".choice1").css('background', 'orange');
+                $(".choice1").css('background', '#CB8835');
                 $(".choice2").append(randQuestion.choices[1]);
-                $(".choice2").css('background', 'orange');
+                $(".choice2").css('background', '#CB8835');
                 $(".choice3").append(randQuestion.choices[2]);
-                $(".choice3").css('background', 'orange');
+                $(".choice3").css('background', '#CB8835');
                 $(".choice4").append(randQuestion.choices[3]);
-                $(".choice4").css('background', 'orange');
+                $(".choice4").css('background', '#CB8835');
             }
         }, 1000);
         console.log('used array:', used);
@@ -555,15 +571,6 @@ $(document).ready(function () {
             document.querySelector(".result").innerHTML = randQuestion.ifWrong;
             loadNextQuestion();
         }
-    })
-    $(".play-again").on("click", function () {
-        //loadNewQuestion();
-        console.log('play again clicked');
-        $(".result").empty();
-        document.querySelector(".correct").innerHTML = 0;
-        document.querySelector(".incorrect").innerHTML = 0;
-        console.log('total score', parseInt(correct) + parseInt(incorrect));
-        initializeGame();
     })
     $(".start").on("click", function () {
         initializeGame();

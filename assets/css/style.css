@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: url("assets/images/wallpaper.jpg");
+    color: white;
+    text-align: center;
+    align-content: center;
+}
+
+button {
+    background: none;
+    border: none !important;
+    border-radius: 4px;
+    color: black;
+}
+
+button:focus {
+    outline: 0;
+}
+
+.question {
+    font-weight: bold;
+}
+
+.question-wrapper {
+    width: 70%;
+    height: 100%;
+    background: black;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.choice1,
+.choice2,
+.choice3,
+.choice4 {
+    color: black;
+    width: 280px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.choices {
+    height: 300px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.correct-div {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+}
+
+p {
+    margin: 10px;
+}
+
+.incorrect-div {
+    width: 80px;
+    position: relative;
+    display: inline-block;
+}
+
+.timeDiv {
+    width: 80px;
+    position: relative;
+    display: inline-block;
+}
+
+#timer {
+    width: 80px;
+}
+
+.start {
+    background: gray;
+}
+
+@media screen and (max-width: 640px) {
+    .question-wrapper {
+        width: 90%;
+    }
+}
