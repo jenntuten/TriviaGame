@@ -178,7 +178,7 @@ $(document).ready(function () {
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is San Antonio Spurs.",
         image: "<img src=assets/images/spurs-champs.jpg><br>",
-        tidbit: "Golden State Warriors most recently won back-to-back titles in 2017 and 2018, Houston in 1994 and 1995, and Chicago dominated the 1990s with several titles."
+        tidbit: "Golden State most recently won back-to-back titles in 2017 and 2018, Houston in 1994 and 1995, and Chicago dominated the 1990s with several titles."
     },
     {
         question: "Which former player was nicknamed 'The Admiral'?",
@@ -196,7 +196,7 @@ $(document).ready(function () {
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Stephen Curry.",
         image: "<img src=assets/images/steph-curry.jpg><br>",
-        tidbit: "Named after his father, Curry's full name is Wardell Stephen Curry II."
+        tidbit: "Named after his father, former NBA player Dell Curry, Stephen's full name is Wardell Stephen Curry II."
     },
     {
         question: "Which former NBA player was not a member of the 1992 U.S. Olympic Dream Team?",

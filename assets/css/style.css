@@ -1,33 +1,28 @@
 * {
     box-sizing: border-box;
 }
-
 body {
     background: url("../images/wallpaper.jpg");
     color: white;
     text-align: center;
     align-content: center;
 }
-
 button {
-    border: none !important;
+    /*border: none !important;*/
     border-radius: 4px;
     color: black;
     background: #d0920f;
-background: radial-gradient(circle farthest-corner at center center, #d0920f 50%, #dba602 90%);
-background: -webkit-radial-gradient(circle farthest-corner at center center, #d0920f 50%, #dba602 90%);
-background: -moz-radial-gradient(circle farthest-corner at center center, #d0920f 50%, #dba602 90%);
+    border: 3px outset #9e9997;
+    background: radial-gradient(circle farthest-corner at center center, #d0920f 50%, #dba602 90%);
+    background: -webkit-radial-gradient(circle farthest-corner at center center, #d0920f 50%, #dba602 90%);
+    background: -moz-radial-gradient(circle farthest-corner at center center, #d0920f 50%, #dba602 90%);
 }
-
-
 button:focus {
     outline: 0;
 }
-
 .question {
     font-weight: bold;
 }
-
 .question-wrapper {
     width: 70%;
     height: 100%;
@@ -37,7 +32,6 @@ button:focus {
     left: 0;
     right: 0;
 }
-
 .choice1,
 .choice2,
 .choice3,
@@ -46,47 +40,42 @@ button:focus {
     width: 280px;
     height: 30px;
     margin-bottom: 10px;
+    border: 2px outset #ba9e57;
 }
-
 .choices {
     height: 300px;
     text-align: center;
     margin: 0 auto;
 }
-
 .correct-div {
     position: relative;
     display: inline-block;
     width: 80px;
 }
-
 p {
     margin: 10px;
 }
-
 .incorrect-div {
     width: 80px;
     position: relative;
     display: inline-block;
 }
-
 .timeDiv {
     width: 80px;
     position: relative;
     display: inline-block;
 }
-
 #timer {
     width: 80px;
 }
-
 .start {
-    
-background: #716e6c;
-background: radial-gradient(circle farthest-corner at center center, #716e6c 60%, #77756f 90%);
-background: -webkit-radial-gradient(circle farthest-corner at center center, #716e6c 60%, #77756f 90%);
+    height: 50px;
+    width: 100px;
+    /*line-height: 50px;*/
+    background: #716e6c;
+    background: radial-gradient(circle farthest-corner at center center, #716e6c 60%, #77756f 90%);
+    background: -webkit-radial-gradient(circle farthest-corner at center center, #716e6c 60%, #77756f 90%);
 }
-
 @media screen and (max-width: 640px) {
     .question-wrapper {
         width: 90%;
