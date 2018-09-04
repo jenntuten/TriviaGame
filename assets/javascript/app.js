@@ -5,6 +5,10 @@ $(document).ready(function () {
     let secondsLeft;
     let interval;
     $(".start").append('Start');
+    $(".choice1").hide();
+    $(".choice2").hide();
+    $(".choice3").hide();
+    $(".choice4").hide();
 
     //This array is massive; I minimize it to navigate through the rest of the code more easily.
     let questionsAndChoices = [{
@@ -253,16 +257,16 @@ $(document).ready(function () {
         $('.start').hide();
         $('.answer-image').empty();
         $('.tidbit').empty();
+        $(".choice1").show();
+        $(".choice2").show();
+        $(".choice3").show();
+        $(".choice4").show();
         randQuestion = questionsAndChoices[Math.floor(Math.random() * questionsAndChoices.length)];
         $(".question").append(randQuestion.question);
         $(".choice1").append(randQuestion.choices[0]);
-        $(".choice1").css('background', '#CB8835');
         $(".choice2").append(randQuestion.choices[1]);
-        $(".choice2").css('background', '#CB8835');
         $(".choice3").append(randQuestion.choices[2]);
-        $(".choice3").css('background', '#CB8835');
         $(".choice4").append(randQuestion.choices[3]);
-        $(".choice4").css('background', '#CB8835');
         used.push(randQuestion);
         //With 10 seconds, the counter starts at 9.
         secondsLeft = 11; 
@@ -270,15 +274,18 @@ $(document).ready(function () {
             document.getElementById('timer').innerHTML = --secondsLeft;
             if (secondsLeft <= 0) {
                 document.getElementById('timer').innerHTML = "Time's up!";
+                $('.tidbit').append(randQuestion.tidbit);
+                $('.answer-image').append(randQuestion.image);
+                document.querySelector(".result").innerHTML = "Answer: " + randQuestion.answer;
                 $(".question").empty();
                 $(".choice1").empty();
-                $(".choice1").css('background', 'black');
                 $(".choice2").empty();
-                $(".choice2").css('background', 'black');
                 $(".choice3").empty();
-                $(".choice3").css('background', 'black');
                 $(".choice4").empty();
-                $(".choice4").css('background', 'black');
+                $(".choice1").hide();
+                $(".choice2").hide();
+                $(".choice3").hide();
+                $(".choice4").hide();
                 loadNextQuestion();
             }
         }, 1000);
@@ -299,16 +306,16 @@ $(document).ready(function () {
                 document.getElementById('timer').innerHTML = "Time's up!";
                 $('.tidbit').append(randQuestion.tidbit);
                 $('.answer-image').append(randQuestion.image);
+                document.querySelector(".result").innerHTML = "Answer: " + randQuestion.answer;
                 $(".question").empty();
                 $(".choice1").empty();
-                //Without changing the CSS, the buttons remain on the screen (blank/orange).
-                $(".choice1").css('background', 'black');
                 $(".choice2").empty();
-                $(".choice2").css('background', 'black');
                 $(".choice3").empty();
-                $(".choice3").css('background', 'black');
                 $(".choice4").empty();
-                $(".choice4").css('background', 'black');
+                $(".choice1").hide();
+                $(".choice2").hide();
+                $(".choice3").hide();
+                $(".choice4").hide();
                 loadNextQuestion();
             }
         }, 1000);
@@ -323,15 +330,15 @@ $(document).ready(function () {
                 $(".result").empty();
                 $('.answer-image').empty();
                 $('.tidbit').empty();
+                $(".choice1").show();
+                $(".choice2").show();
+                $(".choice3").show();
+                $(".choice4").show();
                 $(".question").append(randQuestion.question);
                 $(".choice1").append(randQuestion.choices[0]);
-                $(".choice1").css('background', '#CB8835');
                 $(".choice2").append(randQuestion.choices[1]);
-                $(".choice2").css('background', '#CB8835');
                 $(".choice3").append(randQuestion.choices[2]);
-                $(".choice3").css('background', '#CB8835');
                 $(".choice4").append(randQuestion.choices[3]);
-                $(".choice4").css('background', '#CB8835');
             }
         }, 1000);
         console.log('used array:', used);
@@ -343,13 +350,13 @@ $(document).ready(function () {
             $(".timer").html('0');
             $(".question").empty();
             $(".choice1").empty();
-            $(".choice1").css('background', 'black');
             $(".choice2").empty();
-            $(".choice2").css('background', 'black');
             $(".choice3").empty();
-            $(".choice3").css('background', 'black');
             $(".choice4").empty();
-            $(".choice4").css('background', 'black');
+            $(".choice1").hide();
+            $(".choice2").hide();
+            $(".choice3").hide();
+            $(".choice4").hide();
             $(".done").append("Congrats! A " + correct + "-" + incorrect + " record--not bad!");
         }
     }
@@ -361,13 +368,13 @@ $(document).ready(function () {
         console.log('choice1 clicked');
         $(".question").empty();
         $(".choice1").empty();
-        $(".choice1").css('background', 'black');
         $(".choice2").empty();
-        $(".choice2").css('background', 'black');
         $(".choice3").empty();
-        $(".choice3").css('background', 'black');
         $(".choice4").empty();
-        $(".choice4").css('background', 'black');
+        $(".choice1").hide();
+        $(".choice2").hide();
+        $(".choice3").hide();
+        $(".choice4").hide();
 
         if (randQuestion.choices[0] === randQuestion.answer) {
             $("#timer").html('0');
@@ -394,13 +401,13 @@ $(document).ready(function () {
         $('.answer-image').append(randQuestion.image);
         $(".question").empty();
         $(".choice1").empty();
-        $(".choice1").css('background', 'black');
         $(".choice2").empty();
-        $(".choice2").css('background', 'black');
         $(".choice3").empty();
-        $(".choice3").css('background', 'black');
         $(".choice4").empty();
-        $(".choice4").css('background', 'black');
+        $(".choice1").hide();
+        $(".choice2").hide();
+        $(".choice3").hide();
+        $(".choice4").hide();
         console.log('choice2 clicked');
         if (randQuestion.choices[1] === randQuestion.answer) {
             console.log('correct');
@@ -425,13 +432,13 @@ $(document).ready(function () {
         $('.answer-image').append(randQuestion.image);
         $(".question").empty();
         $(".choice1").empty();
-        $(".choice1").css('background', 'black');
         $(".choice2").empty();
-        $(".choice2").css('background', 'black');
         $(".choice3").empty();
-        $(".choice3").css('background', 'black');
         $(".choice4").empty();
-        $(".choice4").css('background', 'black');
+        $(".choice1").hide();
+        $(".choice2").hide();
+        $(".choice3").hide();
+        $(".choice4").hide();
         console.log('choices clicked');
         if (randQuestion.choices[2] === randQuestion.answer) {
             console.log('correct');
@@ -456,13 +463,14 @@ $(document).ready(function () {
         $('.answer-image').append(randQuestion.image);
         $(".question").empty();
         $(".choice1").empty();
-        $(".choice1").css('background', 'black');
         $(".choice2").empty();
-        $(".choice2").css('background', 'black');
         $(".choice3").empty();
-        $(".choice3").css('background', 'black');
         $(".choice4").empty();
-        $(".choice4").css('background', 'black');
+        $(".choice1").hide();
+        $(".choice2").hide();
+        $(".choice3").hide();
+        $(".choice4").hide();
+
         clearInterval(interval);
         if (randQuestion.choices[3] === randQuestion.answer) {
             console.log('correct');
