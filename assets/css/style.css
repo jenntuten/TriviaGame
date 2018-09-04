@@ -3,7 +3,7 @@
 }
 
 body {
-    background: url("assets/images/wallpaper.jpg");
+    background: url("../images/wallpaper.jpg");
     color: white;
     text-align: center;
     align-content: center;
@@ -15,6 +15,7 @@ button {
     border-radius: 4px;
     color: black;
 }
+
 
 button:focus {
     outline: 0;
