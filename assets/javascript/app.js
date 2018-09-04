@@ -324,7 +324,7 @@ $(document).ready(function () {
             }
         }, 1000);
         used.push(randQuestion);
-        //set a few seconds for user to view answer and wait for the next question
+        //Set a few seconds for user to view answer and wait for the next question.
         let clearResult = 4;
         let interval2 = setInterval(function () {
             $("#timer").html('0');
