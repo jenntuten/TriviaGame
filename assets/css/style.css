@@ -1,6 +1,10 @@
 * {
     box-sizing: border-box;
 }
+html, body {
+    height: 100%;
+    margin: 0;
+}
 body {
     background: url("../images/wallpaper.jpg");
     color: white;
@@ -8,14 +12,8 @@ body {
     align-content: center;
 }
 button {
-    /*border: none !important;*/
     border-radius: 4px;
-    color: black;
-    background: #d0920f;
     border: 3px outset #9e9997;
-    background: radial-gradient(circle farthest-corner at center center, #d0920f 50%, #dba602 90%);
-    background: -webkit-radial-gradient(circle farthest-corner at center center, #d0920f 50%, #dba602 90%);
-    background: -moz-radial-gradient(circle farthest-corner at center center, #d0920f 50%, #dba602 90%);
 }
 button:focus {
     outline: 0;
@@ -25,27 +23,21 @@ button:focus {
 }
 .question-wrapper {
     width: 70%;
-    height: 100%;
+    min-height: 100%;
     background: black;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
-}
-.choice1,
-.choice2,
-.choice3,
-.choice4 {
-    color: black;
-    width: 280px;
-    height: 30px;
-    margin-bottom: 10px;
-    border: 2px outset #ba9e57;
-}
-.choices {
-    height: 300px;
     text-align: center;
-    margin: 0 auto;
+}
+.buttons {
+    align-content: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 }
 .correct-div {
     position: relative;
@@ -70,11 +62,29 @@ p {
 }
 .start {
     height: 50px;
-    width: 100px;
-    /*line-height: 50px;*/
+    width: 150px;
     background: #716e6c;
     background: radial-gradient(circle farthest-corner at center center, #716e6c 60%, #77756f 90%);
     background: -webkit-radial-gradient(circle farthest-corner at center center, #716e6c 60%, #77756f 90%);
+}
+.choice-btn {
+    position: relative;
+    color: black;
+    align-content: center;
+    width: 280px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    margin-bottom: 10px;
+    border: 2px outset #ba9e57;
+    border-radius: 4px;
+    color: black;
+    border: 3px outset #9e9997;
+    background: radial-gradient(circle farthest-corner at center center, #d0920f 50%, #dba602 90%);
+    background: -webkit-radial-gradient(circle farthest-corner at center center, #d0920f 50%, #dba602 90%);
+    background: -moz-radial-gradient(circle farthest-corner at center center, #d0920f 50%, #dba602 90%);
 }
 @media screen and (max-width: 640px) {
     .question-wrapper {

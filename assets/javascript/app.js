@@ -5,11 +5,6 @@ $(document).ready(function () {
     let secondsLeft;
     let interval;
     $(".start").append('Start');
-    //The buttons will show without text when the user first loads the page; used .hide() so that they'll appear at the appropriate times. 
-    $(".choice1").hide();
-    $(".choice2").hide();
-    $(".choice3").hide();
-    $(".choice4").hide();
 
     //This array is massive; I minimize it to navigate through the rest of the code more easily.
     let questionsAndChoices = [{
@@ -66,7 +61,7 @@ $(document).ready(function () {
     },
     {
         question: "What is Magic Johnson's first name?",
-        choices: ["Paul", "Earvin", "Marvin", "Marcus"],
+        choices: ["Michael", "Earvin", "Marvin", "Marcus"],
         answer: "Earvin",
         ifRight: "Congrats! You got it!",
         ifWrong: "Wrong! The correct answer is Earvin.",
@@ -258,21 +253,25 @@ $(document).ready(function () {
         $('.start').hide();
         $('.answer-image').empty();
         $('.fun-fact').empty();
-        $(".choice1").show();
-        $(".choice2").show();
-        $(".choice3").show();
-        $(".choice4").show();
+        $(".buttons").show();
+
         //Select random questions to display one at a time on the screen.
         randQuestion = questionsAndChoices[Math.floor(Math.random() * questionsAndChoices.length)];
         $(".question").append(randQuestion.question);
-        $(".choice1").append(randQuestion.choices[0]);
-        $(".choice2").append(randQuestion.choices[1]);
-        $(".choice3").append(randQuestion.choices[2]);
-        $(".choice4").append(randQuestion.choices[3]);
+        for (let i = 0; i < randQuestion.choices.length; i++) {
+            console.log(randQuestion.choices[i]);
+            //Dynamically create buttons for each choice.
+            let choice = $("<div>");
+            choice.addClass("choice-btn");
+            choice.attr("data-choices", randQuestion.choices[i]);
+            choice.text(randQuestion.choices[i]);
+            $(".buttons").append(choice);
+        }
+
         //Push questions to blank array as they're used.
         used.push(randQuestion);
         //With 10 seconds, the counter starts at 9.
-        secondsLeft = 11; 
+        secondsLeft = 11;
         interval = setInterval(function () {
             document.getElementById('timer').innerHTML = --secondsLeft;
             if (secondsLeft <= 0) {
@@ -281,14 +280,7 @@ $(document).ready(function () {
                 $('.answer-image').append(randQuestion.image);
                 document.querySelector(".result").innerHTML = "Time's up! Answer: " + randQuestion.answer;
                 $(".question").empty();
-                $(".choice1").empty();
-                $(".choice2").empty();
-                $(".choice3").empty();
-                $(".choice4").empty();
-                $(".choice1").hide();
-                $(".choice2").hide();
-                $(".choice3").hide();
-                $(".choice4").hide();
+                $('.buttons').empty();
                 loadNextQuestion();
             }
         }, 1000);
@@ -312,14 +304,7 @@ $(document).ready(function () {
                 $('.answer-image').append(randQuestion.image);
                 document.querySelector(".result").innerHTML = "Time's up! Answer: " + randQuestion.answer;
                 $(".question").empty();
-                $(".choice1").empty();
-                $(".choice2").empty();
-                $(".choice3").empty();
-                $(".choice4").empty();
-                $(".choice1").hide();
-                $(".choice2").hide();
-                $(".choice3").hide();
-                $(".choice4").hide();
+                $('.buttons').empty();
                 loadNextQuestion();
             }
         }, 1000);
@@ -334,18 +319,19 @@ $(document).ready(function () {
                 $(".result").empty();
                 $('.answer-image').empty();
                 $('.fun-fact').empty();
-                $(".choice1").show();
-                $(".choice2").show();
-                $(".choice3").show();
-                $(".choice4").show();
                 $(".question").append(randQuestion.question);
-                $(".choice1").append(randQuestion.choices[0]);
-                $(".choice2").append(randQuestion.choices[1]);
-                $(".choice3").append(randQuestion.choices[2]);
-                $(".choice4").append(randQuestion.choices[3]);
+                for (let i = 0; i < randQuestion.choices.length; i++) {
+                    console.log(randQuestion.choices[i]);
+                    let choice = $("<div>");
+                    choice.addClass("choice-btn");
+                    choice.attr("data-choices", randQuestion.choices[i]);
+                    choice.text(randQuestion.choices[i]);
+                    $(".buttons").append(choice);
+                }
             }
         }, 1000);
         console.log('used array:', used);
+        //Game ends when player has answered 10 questions.
         if (parseInt(correct) + parseInt(incorrect) >= 10) {
             clearInterval(interval);
             clearInterval(interval2);
@@ -353,143 +339,10 @@ $(document).ready(function () {
             $('.start').append('Play Again?');
             $(".timer").html('0');
             $(".question").empty();
-            $(".choice1").empty();
-            $(".choice2").empty();
-            $(".choice3").empty();
-            $(".choice4").empty();
-            $(".choice1").hide();
-            $(".choice2").hide();
-            $(".choice3").hide();
-            $(".choice4").hide();
             $(".done").append("Congrats! A " + correct + "-" + incorrect + " record--not bad!");
         }
     }
-    $(".choice1").on('click', function () {
-        clearInterval(interval);
-        $("#timer").html('0');
-        $('.fun-fact').append(randQuestion.funFact);
-        $('.answer-image').append(randQuestion.image);
-        console.log('choice1 clicked');
-        $(".question").empty();
-        $(".choice1").empty();
-        $(".choice2").empty();
-        $(".choice3").empty();
-        $(".choice4").empty();
-        $(".choice1").hide();
-        $(".choice2").hide();
-        $(".choice3").hide();
-        $(".choice4").hide();
-        if (randQuestion.choices[0] === randQuestion.answer) {
-            $("#timer").html('0');
-            clearInterval(interval);
-            console.log('correct');
-            correct++;
-            document.querySelector(".correct").innerHTML = correct;
-            document.querySelector(".result").innerHTML = randQuestion.ifRight;
-            loadNextQuestion();
-        }
-        else {
-            console.log('incorrect');
-            clearInterval(interval);
-            incorrect++;
-            document.querySelector(".incorrect").innerHTML = incorrect;
-            document.querySelector(".result").innerHTML = randQuestion.ifWrong;
-            loadNextQuestion();
-        }
-    })
-    $(".choice2").on('click', function () {
-        clearInterval(interval);
-        $("#timer").html('0');
-        $('.fun-fact').append(randQuestion.funFact);
-        $('.answer-image').append(randQuestion.image);
-        $(".question").empty();
-        $(".choice1").empty();
-        $(".choice2").empty();
-        $(".choice3").empty();
-        $(".choice4").empty();
-        $(".choice1").hide();
-        $(".choice2").hide();
-        $(".choice3").hide();
-        $(".choice4").hide();
-        console.log('choice2 clicked');
-        if (randQuestion.choices[1] === randQuestion.answer) {
-            console.log('correct');
-            correct++;
-            document.querySelector(".correct").innerHTML = correct;
-            document.querySelector(".result").innerHTML = randQuestion.ifRight;
-            loadNextQuestion();
-        }
-        else {
-            clearInterval(interval);
-            console.log('incorrect');
-            incorrect++;
-            document.querySelector(".incorrect").innerHTML = incorrect;
-            document.querySelector(".result").innerHTML = randQuestion.ifWrong;
-            loadNextQuestion();
-        }
-    })
-    $(".choice3").on('click', function () {
-        clearInterval(interval);
-        $("#timer").html('0');
-        $('.fun-fact').append(randQuestion.funFact);
-        $('.answer-image').append(randQuestion.image);
-        $(".question").empty();
-        $(".choice1").empty();
-        $(".choice2").empty();
-        $(".choice3").empty();
-        $(".choice4").empty();
-        $(".choice1").hide();
-        $(".choice2").hide();
-        $(".choice3").hide();
-        $(".choice4").hide();
-        console.log('choices clicked');
-        if (randQuestion.choices[2] === randQuestion.answer) {
-            console.log('correct');
-            correct++;
-            document.querySelector(".correct").innerHTML = correct;
-            document.querySelector(".result").innerHTML = randQuestion.ifRight;
-            loadNextQuestion();
-        }
-        else {
-            clearInterval(interval);
-            console.log('incorrect');
-            incorrect++;
-            document.querySelector(".incorrect").innerHTML = incorrect;
-            document.querySelector(".result").innerHTML = randQuestion.ifWrong;
-            loadNextQuestion();
-        }
-    })
-    $(".choice4").on('click', function () {
-        console.log('choice4 clicked');
-        $('.fun-fact').append(randQuestion.funFact);
-        $("#timer").html('0');
-        $('.answer-image').append(randQuestion.image);
-        $(".question").empty();
-        $(".choice1").empty();
-        $(".choice2").empty();
-        $(".choice3").empty();
-        $(".choice4").empty();
-        $(".choice1").hide();
-        $(".choice2").hide();
-        $(".choice3").hide();
-        $(".choice4").hide();
-        clearInterval(interval);
-        if (randQuestion.choices[3] === randQuestion.answer) {
-            console.log('correct');
-            correct++;
-            document.querySelector(".correct").innerHTML = correct;
-            document.querySelector(".result").innerHTML = randQuestion.ifRight;
-            loadNextQuestion();
-        }
-        else {
-            clearInterval(interval);
-            console.log('incorrect');
-            incorrect++;
-            document.querySelector(".incorrect").innerHTML = incorrect;
-            document.querySelector(".result").innerHTML = randQuestion.ifWrong;
-            loadNextQuestion();
-        }
-    })
+
     $(".start").on("click", function () {
         initializeGame();
         correct = 0;
@@ -499,5 +352,30 @@ $(document).ready(function () {
         $(".done").empty();
         document.querySelector(".correct").innerHTML = 0;
         document.querySelector(".incorrect").innerHTML = 0;
+    })
+
+    $(".buttons").on('click', 'div', function () {
+        let guess = $(this).attr("data-choices");
+        console.log(guess);
+        $('.buttons').empty();
+        clearInterval(interval);
+        $("#timer").html('0');
+        $('.fun-fact').append(randQuestion.funFact);
+        $('.answer-image').append(randQuestion.image);
+        $(".question").empty();
+        if (guess === randQuestion.answer) {
+            console.log('correct');
+            correct++;
+            document.querySelector(".correct").innerHTML = correct;
+            document.querySelector(".result").innerHTML = randQuestion.ifRight;
+            loadNextQuestion();
+        }
+        else {
+            console.log('incorrect');
+            incorrect++;
+            document.querySelector(".correct").innerHTML = correct;
+            document.querySelector(".result").innerHTML = randQuestion.ifWrong;
+            loadNextQuestion();
+        }
     })
 })
