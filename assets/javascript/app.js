@@ -16,6 +16,40 @@ $(document).ready(function () {
         image: "<img src=assets/images/Jordan_45jersey.jpg><br>",
         funFact: "Jordan wore jersey #45 after his first retirement from basketball."
     }, {
+        question: "Where did the Grizzlies call home before they moved to Memphis?",
+        choices: ["Seattle", "St. Louis", "San Diego", "Vancouver"],
+        answer: "Vancouver",
+        ifRight: "Congrats! You got it!",
+        ifWrong: "Wrong! The correct answer is Vancouver.",
+        image: "<img src=assets/images/grizzlies.png><br>",
+        funFact: "The Grizzlies moved from Vancouver, BC to Memphis in 2001."
+    },  {
+        question: "Which state does not currently have an NBA team?",
+        choices: ["Georgia", "North Carolina", "Colorado", "Washington"],
+        answer: "Washington",
+        ifRight: "Congrats! You got it!",
+        ifWrong: "Wrong! The correct answer is Washington.",
+        image: "<img src=assets/images/sonics.png><br>",
+        funFact: "The Seattle SuperSonics moved to Oklahoma City and were renamed the Thunder."
+    },  {
+        question: "Which team won the NBA championships during two consecutive seasons while Michael Jordan was temporarily retired for the first time?",
+        choices: ["Utah Jazz", "Detroit Pistons", "Houston Rockets", "San Antonio Spurs"],
+        answer: "Houston Rockets",
+        ifRight: "Congrats! You got it!",
+        ifWrong: "Wrong! The correct answer is Houston Rockets.",
+        image: "<img src=assets/images/rockets.jpg><br>",
+        funFact: "The Rockets won consecutive championships in 1994 and 1995."
+    },  
+    {
+        question: "The infamous brawl known as 'Malice at the Palace' took place between players of which two NBA teams?",
+        choices: ["Indiana Pacers and Detroit Pistons", "Chicago Bulls and Detroit Pistons", "Houston Rockets and Utah Jazz", "Miami Heat and Chicago Bulls"],
+        answer: "Indiana Pacers and Detroit Pistons",
+        ifRight: "Congrats! You got it!",
+        ifWrong: "Wrong! The correct answer is Indiana Pacers and Detroit Pistons.",
+        image: "<img src=assets/images/malice-at-the-palace.jpg><br>",
+        funFact: "A brawl broke out between players and fans following a foul on Pistons center Ben Wallace and a fan throwing a drink at Pacers forward Ron Artest. The game was shut down with 45.9 seconds remaining in the game."
+    },
+    {
         question: "Where did the Los Angeles Lakers originate?",
         choices: ["San Diego", "Minneapolis", "San Francisco", "St. Louis"],
         answer: "Minneapolis",
@@ -240,7 +274,7 @@ $(document).ready(function () {
         funFact: "Michael Jordan attended UNC, Shaq played for LSU and Kevin Durant attended the University of Texas."
     },
     ];
-
+    //Generate questions at random, displayed one at a time.
     let randQuestion = questionsAndChoices[Math.floor(Math.random() * questionsAndChoices.length)];
     for (let k = 0; k < 10; k++) {
         let currentArray = questionsAndChoices[k];
@@ -270,8 +304,8 @@ $(document).ready(function () {
 
         //Push questions to blank array as they're used.
         used.push(randQuestion);
-        //With 10 seconds, the counter starts at 9.
-        secondsLeft = 11;
+        //Timer gives the player 10 seconds to answer the question.
+        secondsLeft = 10;
         interval = setInterval(function () {
             document.getElementById('timer').innerHTML = --secondsLeft;
             if (secondsLeft <= 0) {
@@ -373,7 +407,7 @@ $(document).ready(function () {
         else {
             console.log('incorrect');
             incorrect++;
-            document.querySelector(".correct").innerHTML = correct;
+            document.querySelector(".incorrect").innerHTML = incorrect;
             document.querySelector(".result").innerHTML = randQuestion.ifWrong;
             loadNextQuestion();
         }

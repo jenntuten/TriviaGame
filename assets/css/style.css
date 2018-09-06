@@ -10,6 +10,8 @@ body {
     color: white;
     text-align: center;
     align-content: center;
+    font-family: 'Open Sans', sans-serif;;
+    font-weight: 400;
 }
 button {
     border-radius: 4px;
@@ -18,10 +20,13 @@ button {
 button:focus {
     outline: 0;
 }
+h2, h4 {
+    font-family: 'Oswald', sans-serif;
+}
 .question {
     font-weight: bold;
 }
-.question-wrapper {
+.container {
     width: 70%;
     min-height: 100%;
     background: black;
@@ -46,6 +51,12 @@ button:focus {
 }
 p {
     margin: 10px;
+    max-width: 350px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 }
 .incorrect-div {
     width: 80px;
@@ -61,8 +72,8 @@ p {
     width: 80px;
 }
 .start {
-    height: 50px;
-    width: 150px;
+    height: 40px;
+    width: 120px;
     background: #716e6c;
     background: radial-gradient(circle farthest-corner at center center, #716e6c 60%, #77756f 90%);
     background: -webkit-radial-gradient(circle farthest-corner at center center, #716e6c 60%, #77756f 90%);
@@ -72,7 +83,8 @@ p {
     color: black;
     align-content: center;
     width: 280px;
-    height: 30px;
+    height: 40px;
+    line-height: 30px;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -85,6 +97,7 @@ p {
     background: radial-gradient(circle farthest-corner at center center, #d0920f 50%, #dba602 90%);
     background: -webkit-radial-gradient(circle farthest-corner at center center, #d0920f 50%, #dba602 90%);
     background: -moz-radial-gradient(circle farthest-corner at center center, #d0920f 50%, #dba602 90%);
+    cursor: default;
 }
 @media screen and (max-width: 640px) {
     .question-wrapper {
