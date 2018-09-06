@@ -100,7 +100,7 @@ p {
     cursor: default;
 }
 @media screen and (max-width: 640px) {
-    .question-wrapper {
+    .container {
         width: 90%;
     }
 }
